@@ -6,9 +6,14 @@ const port = 3000;
 var app = express();
 
 app.use(bodyParser.json());
-app.post('/random', (req, res) => {
+
+app.post('/random', async(req, res) => {
     res.header('Content-Type', 'application/json');
-    res.send(JSON.stringify(random.dataGenerator(req.body.n)));
+    random.generateJson(req.body.n).then(
+        (data) => {
+            res.send(JSON.stringify(data));
+        }
+    );
 });
 
 // var Scraper = require('images-scraper');

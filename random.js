@@ -41,6 +41,43 @@ function getRandomString(requiredLength = 5) {
     return "NP" + getRandomInt(+min_, +max_);
 }
 
+
+async function getRandomImages(count = 2, query = 'nose pin', width = 200, height = 300) {
+
+    var Scraper = require('images-scraper');
+    const google = new Scraper({
+        puppeteer: {
+            headless: true,
+        }
+    });
+    let imageUrls = [];
+    return google.scrape(query, count).then((results) => {
+        for (let i = 0; i < results.length; i++) {
+            imageUrls.push(results[i].url);
+        }
+    }).then(() => {
+        return imageUrls;
+    });
+}
+
+exports.generateJson = async(x) => {
+    let returnArr = [];
+    template = {
+        'StyleNumber': getRandomString(),
+        'Images': await getRandomImages(),
+        'DiamondWeight': getRandomNumber(min = 0, max = 2),
+        'GoldWeight': getRandomNumber(min = 0, max = 4, precision = 3),
+        'DiamondCount': getRandomInt(min = 0, max = 100),
+        'DesignParameters': {
+            'featuredDesign': getRandomBool(),
+            'highestSelling': getRandomBool(),
+            'hancyDiamond': getRandomBool(),
+            'newDesign': getRandomBool(),
+        }
+    };
+    for (var i = 0; i < x; i++) returnArr.push(template);
+    return returnArr;
+=======
 function getRandomImage(count = 2, width = 200, height = 300) {
     let randomImages = [];
     for (var i = 0; i < count; i++) {
@@ -79,5 +116,6 @@ exports.dataGenerator = async (x) => {
     console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
 
     return arr;
+
 
 }
