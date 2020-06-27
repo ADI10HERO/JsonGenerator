@@ -77,45 +77,4 @@ exports.generateJson = async(x) => {
     };
     for (var i = 0; i < x; i++) returnArr.push(template);
     return returnArr;
-=======
-function getRandomImage(count = 2, width = 200, height = 300) {
-    let randomImages = [];
-    for (var i = 0; i < count; i++) {
-        randomImages.push(images[Math.floor(Math.random() * 12)]);
-        // randomImages.push(`https://picsum.photos/${ width }/${ height }`);
-    }
-
-    return randomImages;
-}
-
-exports.dataGenerator = async (x) => {
-    var t0 = performance.now()
-    let arr = [];
-
-    template = {
-        'styleNumber': getRandomString(),
-        'images': getRandomImage(1),
-        'diamondWeight': getRandomNumber(min = 0, max = 2),
-        'goldWeight': getRandomNumber(min = 0, max = 4, precision = 3),
-        'diamondCount': getRandomInt(min = 0, max = 100),
-        'designDetails': {
-            'featured': getRandomBool(),
-            'highestSelling': getRandomBool(),
-            'fancyDiamond': getRandomBool(),
-            'new': getRandomBool(),
-        }
-    };
-
-    for (var i = 0; i < x; i++) {
-        arr.push(template);
-    }
-
-
-
-    var t1 = performance.now()
-    console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
-
-    return arr;
-
-
 }
