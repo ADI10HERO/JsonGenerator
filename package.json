@@ -1,5 +1,5 @@
 {
-    "name": "jsongenerator",
+    "name": "RandomJsonGenerator",
     "version": "1.0.0",
     "description": "A random Json Data Generator",
     "main": "index.js",
