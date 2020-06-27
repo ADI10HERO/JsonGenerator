@@ -1,6 +1,6 @@
 {
     "name": "random-json-generator",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A random Json Data Generator",
     "main": "index.js",
     "scripts": {
