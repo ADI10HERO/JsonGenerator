@@ -11,7 +11,7 @@
         "type": "git",
         "url": "git+https://github.com/ADI10HERO/JsonGenerator.git"
     },
-    "author": "adi10hero, shintan777",
+    "author": "Aditya Srivastava (adi10hero), Tanvhi Shinde (shintan777)",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/ADI10HERO/JsonGenerator/issues"
